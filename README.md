@@ -1,4 +1,4 @@
-# scRNA_ETL & PostgreSQL Warehouse
+# scRNA_ETL
 
 ETL pipeline for processing sparse matrix single-cell RNA-sequencing datasets using Apache Parquet, PySpark on Databricks Serverless, Unity Catalog Delta Lake, and PostgreSQL.
 
