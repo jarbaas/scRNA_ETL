@@ -1,0 +1,21 @@
+resources:
+  jobs:
+    scrna_lakehouse_etl:
+      name: scRNA_Lakehouse_ETL
+      tasks:
+        - task_key: qc_normalize_and_load
+          notebook_task:
+            notebook_path: /Workspace/Users/${workspace.current_user.userName}/01_scRNA_PySpark_ETL
+            source: WORKSPACE
+            base_parameters:
+              input_volume_path: /Volumes/workspace/default/scrna_raw
+              silver_table: workspace.default.scrna_silver_norm
+              min_genes: "200"
+              max_genes: "2500"
+              max_pct_mt: "5.0"
+              top_n_genes: "2000"
+              secret_scope: neon_postgres
+              pg_database: neondb
+              pg_user: neondb_owner
+      queue:
+        enabled: true
